@@ -17,7 +17,7 @@ import {jwtDecode} from "jwt-decode"; // fixed import
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import "./FindMechanics.css";
+import "./FindDrivers.css";
 
 // Fix default marker issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -70,7 +70,7 @@ function FlyToUserDriverHospital({ userLocation, driver, hospital }) {
 }
 
 // ---------- Main ----------
-const FindMechanics = () => {
+const FindDrivers = () => {
   const [drivers, setDrivers] = useState([]);
   const [hospitals, setHospitals] = useState([]);
   const [selectedDriver, setSelectedDriver] = useState(null);
@@ -505,4 +505,4 @@ const FindMechanics = () => {
   );
 };
 
-export default FindMechanics;
+export default FindDrivers;

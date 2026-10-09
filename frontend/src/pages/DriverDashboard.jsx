@@ -4,9 +4,9 @@ import { jwtDecode } from "jwt-decode";
 import { handleSuccess, handleError } from "../utils";
 import useHandleLogout from "../hooks/useHandleLogout";
 import { useNavigate } from "react-router-dom";
-import "./MechanicDashboard.css";
+import "./DriverDashboard.css";
 
-const MechanicDashboard = () => {
+const DriverDashboard = () => {
   const [records, setRecords] = useState([]); // always keep array shape
   const [loading, setLoading] = useState(false);
   const [driverId, setDriverId] = useState(null);
@@ -287,4 +287,4 @@ const MechanicDashboard = () => {
   );
 };
 
-export default MechanicDashboard;
+export default DriverDashboard;

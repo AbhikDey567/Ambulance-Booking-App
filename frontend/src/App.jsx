@@ -7,9 +7,9 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import FindMechanics from "./pages/FindMechanics";
+import FindDrivers from "./pages/FindDrivers";
 import MapView from "./pages/MapView";
-import MechanicDashboard from "./pages/MechanicDashboard";
+import DriverDashboard from "./pages/DriverDashboard";
 import UserDashboard from "./pages/UserDashboard";
 import UserLogin from "./pages/UserLogin";
 import UserSignup from "./pages/UserSignup";
@@ -41,12 +41,12 @@ function App() {
           <Route path="/user-login" element={<UserLogin />} />
           <Route path="/user-signup" element={<UserSignup />} />
 
-          {/* Mechanic protected routes */}
+          {/* Driver protected routes */}
           <Route
             path="/driver-dashboard"
             element={
               <ProtectedRoute role="driver">
-                <MechanicDashboard />
+                <DriverDashboard />
               </ProtectedRoute>
             }
           />
@@ -64,7 +64,7 @@ function App() {
             path="/find-drivers"
             element={
               <ProtectedRoute role="user">
-                <FindMechanics />
+                <FindDrivers />
               </ProtectedRoute>
             }
           />
