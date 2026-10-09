@@ -154,7 +154,7 @@ Replace `YOUR_USERNAME` and the repository name with your actual GitHub details.
 ### 2. Install Dependencies
 
 Install dependencies in the backend and frontend directories.
-
+```bash
 git clone https://github.com/AbhikDey567/Ambulance-Booking-App.git
 cd Ambulance-Booking-App
 
@@ -165,7 +165,7 @@ npm install
 # Terminal 2, from the repo root
 cd frontend
 npm install
-
+```
 
 ### 3. Configure Environment Variables
 
