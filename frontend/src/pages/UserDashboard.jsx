@@ -3,7 +3,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { handleError, handleSuccess } from "../utils";
 import useHandleLogout from "../hooks/useHandleLogout";
-import "./MechanicDashboard.css";
+import "./DriverDashboard.css";
 
 function UserDashboard() {
   const [records, setRecords] = useState([]);
