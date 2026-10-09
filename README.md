@@ -186,7 +186,7 @@ Use the actual variable names expected by your source code. Configure any additi
 From the backend directory:
 
 ```bash
-npm run dev
+node server.js
 ```
 
 If your project does not define a `dev` script, use the start command specified in its `package.json`.
