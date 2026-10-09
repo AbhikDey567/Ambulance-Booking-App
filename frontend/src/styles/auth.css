@@ -1,0 +1,202 @@
+/* ================================
+   Auth Page Styles
+================================ */
+
+/* Container for two-page layout */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* keep aligned at top */
+  min-height: 100vh; /* full viewport */
+  min-width: 100vw;
+  padding: 20px;
+  background: linear-gradient(135deg, #e3f2fd, #f9f9f9);
+  gap: 40px; /* space between map and form */
+  
+}
+
+/* Map container (squarish look) */
+.map-container {
+  flex: 0 0 500px; /* fixed square size */
+  height: 500px;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Card-like form (smaller than map) */
+.auth-box {
+  background-color: #ffffff;
+  padding: 35px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 380px; /* narrower than map */
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+}
+
+/* Background image wrapper */
+.back {
+  z-index: 0;
+}
+
+.bg-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+/* Logo */
+.auth-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+/* Headings */
+.auth-box h1 {
+  font-size: 1.9rem;
+  margin-bottom: 25px;
+  color: #222;
+  font-weight: 700;
+}
+
+/* Input groups */
+.input-group,
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label,
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+/* Inputs */
+.input-group input,
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.2s ease-in-out;
+  background: #fafafa;
+  color: #333;
+}
+
+/* Focus state */
+.input-group input:focus,
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+/* Dropdown specific */
+.form-group select {
+  appearance: none; /* removes default arrow */
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23333' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px; /* space for arrow */
+}
+
+/* Textarea specific */
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical; /* only vertical resizing */
+  font-family: inherit;
+}
+
+
+/* Button */
+.auth-button,
+.auth-btn {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+.auth-button:hover,
+.auth-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #00408d);
+  transform: translateY(-1px);
+}
+
+/* Footer links */
+.auth-footer,
+.auth-switch {
+  display: block;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.auth-footer a,
+.auth-switch a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-footer a:hover,
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    min-height: auto;        /* allow height to adjust */
+    padding: 20px 10px;
+    overflow-y: auto;        /* enable scrolling if content overflows */
+  }
+
+  .map-container {
+    flex: unset;
+    width: 100%;
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-box {
+    padding: 25px 20px;
+  }
+
+  .auth-box h1 {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,165 @@
+/* ---------- Container ---------- */
+.mapview-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  background: #f8fafc;
+  min-height: 100vh;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* ---------- Bookings List Card ---------- */
+.bookings-card {
+  flex: 1;
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  overflow-y: auto;
+  min-width: 0;
+}
+
+.bookings-card h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.empty-text {
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* ---------- Booking Item ---------- */
+.booking-item {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-bottom: 12px;
+}
+.booking-item:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.booking-item h3 {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.booking-item p {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* ---------- Input + Button (Card & Popup) ---------- */
+.booking-item input,
+.leaflet-popup-content input {
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.booking-item button,
+.leaflet-popup-content button {
+  margin-top: 6px;
+  padding: 6px 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-block;
+}
+.booking-item button:hover,
+.leaflet-popup-content button:hover {
+  background: #1e40af;
+}
+
+/* ---------- Map Card ---------- */
+.map-card {
+  flex: 2;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  min-width: 0;
+  height: 80vh;
+}
+
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 12px;
+}
+
+/* ---------- Responsive Styles ---------- */
+@media (max-width: 1024px) {
+  .map-card {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .mapview-container {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .map-card {
+    height: 50vh;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .bookings-card {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .booking-item button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-card {
+    height: 40vh;
+  }
+
+  .bookings-card h2 {
+    font-size: 18px;
+  }
+
+  .booking-item h3 {
+    font-size: 15px;
+  }
+
+  .booking-item p {
+    font-size: 13px;
+  }
+
+  .booking-item button {
+    font-size: 14px;
+  }
+}

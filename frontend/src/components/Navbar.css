@@ -1,0 +1,290 @@
+/* =========================
+   Navbar container
+========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  height: 70px;
+  background: var(--surface, #fff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  font-size: large;
+  color: var(--text, #030303);
+  box-shadow: 0 4px 12px rgba(246, 243, 243, 0.2);
+  z-index: 1000;
+  position: relative;
+}
+
+/* =========================
+   Logo
+========================= */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.navbar-logo .logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-logo {
+  height: 45px;
+}
+
+/* =========================
+   Nav links (desktop)
+========================= */
+.nav-links {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  position: relative;  /* important for dropdown positioning */
+  z-index: 1000;
+}
+
+.nav-links a {
+  color: var(--text, #030303);
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--brand-500, #007bff);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(3, 3, 3, 0.12);
+}
+
+/* =========================
+   Auth buttons
+========================= */
+.login-btn {
+  border: 1px solid #fff;
+  padding: 6px 14px;
+  color: #f7f8fa !important;
+  background-color: var(--brand-500, rgb(24, 83, 219));
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  background-color: #fbfbfb;
+  color: var(--brand-500, rgb(23, 66, 223)) !important;
+  box-shadow: 0 12px 24px rgba(3, 3, 3, 0.12);
+}
+
+.signup-btn {
+  background-color: #fbfbfb;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(3, 3, 3, 0.12);
+}
+
+/* =========================
+   Dropdown container
+========================= */
+.nav-links .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-links .dropdown-toggle {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: var(--text, #030303);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.nav-links .dropdown-toggle:hover {
+  color: var(--brand-500, #007bff);  /* same blue as links */
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(3, 3, 3, 0.12);
+  background-color: rgba(255,255,255,0.1); /* optional subtle hover bg */
+}
+
+/* =========================
+   Dropdown menu (desktop + mobile)
+========================= */
+.nav-links .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: linear-gradient(145deg, #fdfeff, #fafafb);
+  border-radius: 12px;
+  min-width: 200px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  gap: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: 1100; /* above navbar */
+}
+
+/* Show dropdown when JS toggles .show */
+.nav-links .dropdown-menu.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Dropdown links */
+.nav-links .dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--text, #100101);
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.nav-links .dropdown-menu a:hover {
+  background-color: rgba(255,255,255,0.95);
+  color: var(--brand-500, #007bff); /* blue text on hover */
+  transform: translateX(5px);
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(3,3,3,0.12);
+}
+
+/* =========================
+   Hamburger (mobile)
+========================= */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  z-index: 1200;
+}
+
+.hamburger .bar {
+  height: 3px;
+  width: 100%;
+  background: black;
+  border-radius: 5px;
+  transition: all 0.4s ease;
+}
+
+.hamburger.open .bar:nth-child(1) {
+  transform: rotate(45deg) translateY(13px);
+}
+
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translateY(-13px);
+}
+
+/* =========================
+   Responsive (Mobile)
+========================= */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    width: 220px;
+    background: var(--surface, #f9fafb);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+    z-index: 1100;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  
+  .nav-links a,
+  .nav-links .dropdown-menu a {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+  }
+  .nav-links .dropdown{
+    padding: auto;
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  /* Mobile submenu: slide from left */
+  .nav-links .dropdown-menu {
+    top: 0;
+    right: 200px;
+    margin-top: 0;
+    min-width: 180px;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    transform: translateX(-20px);
+  }
+
+  .nav-links .dropdown-menu.show {
+    transform: translateX(0);
+  }
+
+  .nav-links .dropdown-menu a:hover {
+    transform: translateY(-5px);
+  }
+  /* Make dropdown toggle behave like nav links */
+.nav-links .dropdown-toggle {
+  padding: 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: var(--text, #030303);
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+}
+
+.nav-links .dropdown-toggle:hover {
+  color: var(--brand-500, #007bff);  /* same blue as links */
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(3, 3, 3, 0.12);
+  background-color: rgba(255,255,255,0.1); /* optional subtle hover bg */
+}
+}
