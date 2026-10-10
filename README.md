@@ -258,7 +258,7 @@ Please test your changes before submitting a pull request.
 
 ## 📄 License
 
-This project is intended for educational and development purposes. Add an appropriate open-source license, such as the MIT License, if you wish to permit reuse and redistribution.
+This project is intended for educational and development purposes. 
 
 ---
 
