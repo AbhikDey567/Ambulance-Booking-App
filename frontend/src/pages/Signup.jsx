@@ -62,7 +62,7 @@ const Signup = () => {
   };
 
   // Submit form
-  // Submit form (replace your existing handleSubmit with this)
+  
 const handleSubmit = async (e) => {
   e.preventDefault();
 
