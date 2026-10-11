@@ -220,29 +220,88 @@ const FindDrivers = () => {
   }, []);
 
   // Fetch hospitals (same)
+  
+  // Fetch nearby hospitals
   useEffect(() => {
-    if (!confirmedLocation) return;
+    if (!confirmedLocation) {
+      setHospitals([]);
+      return;
+    }
+
     const fetchHospitals = async () => {
-      try {
-        const query = `
-          [out:json];
-          (
-            node["amenity"="hospital"](around:${radius * 1000}, ${confirmedLocation.lat}, ${confirmedLocation.lng});
-            way["amenity"="hospital"](around:${radius * 1000}, ${confirmedLocation.lat}, ${confirmedLocation.lng});
-            relation["amenity"="hospital"](around:${radius * 1000}, ${confirmedLocation.lat}, ${confirmedLocation.lng});
+      const { lat, lng } = confirmedLocation;
+      const radiusMeters = radius * 1000;
+
+      const query = `
+        [out:json][timeout:25];
+        (
+          node["amenity"="hospital"](around:${radiusMeters},${lat},${lng});
+          way["amenity"="hospital"](around:${radiusMeters},${lat},${lng});
+          relation["amenity"="hospital"](around:${radiusMeters},${lat},${lng});
+        );
+        out center tags;
+      `;
+
+      const endpoints = [
+        "https://overpass-api.de/api/interpreter",
+        "https://overpass.kumi.systems/api/interpreter"
+      ];
+
+      for (const endpoint of endpoints) {
+        try {
+          console.log("Fetching hospitals from:", endpoint);
+
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `data=${encodeURIComponent(query)}`
+          });
+
+          if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+          }
+
+          const data = await res.json();
+
+          if (!Array.isArray(data.elements)) {
+            throw new Error(
+              data.remark || "Invalid response from Overpass API"
+            );
+          }
+
+          const results = data.elements
+            .map((el) => ({
+              id: el.id,
+              name: el.tags?.name || "Unnamed Hospital",
+              lat: el.lat ?? el.center?.lat,
+              lng: el.lon ?? el.center?.lon
+            }))
+            .filter(
+              (h) =>
+                Number.isFinite(h.lat) &&
+                Number.isFinite(h.lng)
+            );
+
+          setHospitals(results);
+          console.log("Hospitals fetched:", results.length, results);
+          return;
+        } catch (err) {
+          console.error(
+            `Hospital fetch failed (${endpoint}):`,
+            err
           );
-          out center;
-        `;
-        const res = await fetch("https://overpass-api.de/api/interpreter", { method: "POST", body: query });
-        const data = await res.json();
-        const hospitals = data.elements.map((el) => ({ name: el.tags?.name || "Unnamed Hospital", lat: el.lat || el.center?.lat, lng: el.lon || el.center?.lon })).filter((h) => h.lat && h.lng);
-        setHospitals(hospitals);
-      } catch (err) {
-        console.error("Failed to fetch hospitals from OSM:", err);
+        }
       }
+
+      setHospitals([]);
+      console.error("All hospital data sources failed.");
     };
+
     fetchHospitals();
   }, [confirmedLocation, radius]);
+
 
   // Distance calc
   const calculateDistance = (loc1, loc2) => {
