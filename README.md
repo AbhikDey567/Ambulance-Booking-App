@@ -99,7 +99,20 @@ The application follows a client-server architecture.
 5. **Booking updates:** The driver can update the request status and estimated arrival information.
 6. **Hospital discovery:** Nearby hospitals can be displayed using OpenStreetMap data services.
 7. **Booking history:** Patients can review their requests and manage bookings through their dashboard.
-
+<div style="display: flex; overflow-x: auto; gap: 12px;">
+  <img src=<img width="1887" height="931" alt="Screenshot 2026-10-11 155904" src="https://github.com/user-attachments/assets/657df087-c260-499b-8aa5-0cb82a84e9ea" />
+ width="500" />
+  <img src=<img width="1912" height="930" alt="Screenshot 2026-10-11 155000" src="https://github.com/user-attachments/assets/0d6ee245-020b-48f9-8a11-e5dbfbc9f506" />
+ width="500" />
+  <img src=<img width="1920" height="925" alt="Screenshot (238)" src="https://github.com/user-attachments/assets/4a38f6b3-fe3d-44bc-a592-f030a43105aa" />
+ width="500" />
+  <img src=<img width="1920" height="1080" alt="Screenshot (239)" src="https://github.com/user-attachments/assets/b8862d16-224b-4914-af1e-1a77088f84cd" />
+ width="500" />
+  <img src=<img width="1891" height="907" alt="Screenshot 2026-10-11 155705" src="https://github.com/user-attachments/assets/e41bf8cc-5305-4099-8e37-ccdb8c8ec3ce" />
+ width="500" />
+  <img src=<img width="1920" height="928" alt="Screenshot (240)" src="https://github.com/user-attachments/assets/7df6780f-9cfd-45e0-a028-aecc4bffdc64" />
+ width="500" />
+</div>
 *The exact availability of each step depends on the application's implemented modules and configuration.*
 
 ## 💻 Installation and Setup
