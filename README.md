@@ -88,36 +88,7 @@ The project aims to provide a more accessible, organized, and extensible approac
 
 The application follows a client-server architecture.
 
-```text
-                 ┌──────────────────────┐
-                 │       Patients       │
-                 └──────────┬───────────┘
-                            │
-                 ┌──────────▼───────────┐
-                 │   React Frontend     │
-                 │ Patient / Driver UI  │
-                 │   Leaflet Maps       │
-                 └──────────┬───────────┘
-                            │
-                       REST API
-                            │
-                 ┌──────────▼───────────┐
-                 │   Express.js API     │
-                 │ Authentication       │
-                 │ Booking Management   │
-                 │ Access Control       │
-                 └──────────┬───────────┘
-                            │
-                 ┌──────────▼───────────┐
-                 │      MongoDB         │
-                 │ Users and Bookings   │
-                 └──────────────────────┘
-
-          External Services:
-          ├── OpenStreetMap
-          ├── Leaflet.js
-          └── Overpass API
-```
+<img width="1536" height="1024" alt="8d0d70e2-f960-4606-997f-0616710cfc46" src="https://github.com/user-attachments/assets/0fc73d08-55a0-401f-827c-c35ba796c264" />
 
 ## 🔄 How It Works
 
