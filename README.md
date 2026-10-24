@@ -108,7 +108,7 @@ Explore the Ambulance Booking System interface, from booking ambulances to track
   <img src="docs/images/home.png" width="500" alt="Home page" />
   <img src="docs/images/booking-map.png" width="500" alt="Ambulance booking map" />
   <img src="docs/images/driver-dashboard.png" width="500" alt="Driver dashboard" />
-  <img src="docs/images/patient-profile.png" width="500" alt="Patient profile" />
+  <img src="docs/images/patient_profile.png" width="500" alt="Patient profile" />
   <img src="docs/images/hospital-list.png" width="500" alt="Nearby hospitals" />
    <img src="docs/images/patient-dashboard.png" width="500" alt="Patient dashboard" />
 </div>
